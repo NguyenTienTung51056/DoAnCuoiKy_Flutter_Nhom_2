@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:authentication_firebase/compoments/Input_Field.dart';
-import 'package:authentication_firebase/page/Authenticated/home_page2.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/compoments/Input_Field.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/Authenticated/home_page2.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../auth.dart';

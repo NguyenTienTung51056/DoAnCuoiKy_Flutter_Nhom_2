@@ -1,12 +1,12 @@
-import 'package:authentication_firebase/compoments/Bottom.dart';
-import 'package:authentication_firebase/compoments/ButtonWithCustom.dart';
-import 'package:authentication_firebase/compoments/HeaderHome.dart';
-import 'package:authentication_firebase/compoments/ItemCard.dart';
-import 'package:authentication_firebase/compoments/homeservice.dart';
-import 'package:authentication_firebase/page/Authenticated/guides.dart';
-import 'package:authentication_firebase/page/Authenticated/tours.dart';
-import 'package:authentication_firebase/services/apis_service.dart';
-import 'package:authentication_firebase/utils/snackBar_helper.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/compoments/Bottom.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/compoments/ButtonWithCustom.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/compoments/HeaderHome.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/compoments/ItemCard.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/compoments/homeservice.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/Authenticated/guides.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/Authenticated/tours.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/services/apis_service.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/utils/snackBar_helper.dart';
 import 'package:flutter/material.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

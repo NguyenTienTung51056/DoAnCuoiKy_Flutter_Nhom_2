@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:authentication_firebase/page/Authenticated/home_page.dart';
-import 'package:authentication_firebase/page/NoAuthentication/forgot_password.dart';
-import 'package:authentication_firebase/page/NoAuthentication/register_page.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/Authenticated/home_page.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/NoAuthentication/forgot_password.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/NoAuthentication/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_svg/flutter_svg.dart';

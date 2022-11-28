@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:authentication_firebase/auth.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/auth.dart';
 class Bottom extends StatefulWidget {
   const Bottom({Key? key}) : super(key: key);
 

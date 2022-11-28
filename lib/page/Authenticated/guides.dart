@@ -1,7 +1,7 @@
-import 'package:authentication_firebase/compoments/HeaderHome.dart';
-import 'package:authentication_firebase/compoments/ItemCard.dart';
-import 'package:authentication_firebase/services/apis_service.dart';
-import 'package:authentication_firebase/utils/snackBar_helper.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/compoments/HeaderHome.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/compoments/ItemCard.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/services/apis_service.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/utils/snackBar_helper.dart';
 import 'package:flutter/material.dart';
 
 

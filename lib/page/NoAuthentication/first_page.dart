@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:authentication_firebase/page/NoAuthentication/seconed_page.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/NoAuthentication/seconed_page.dart';
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {

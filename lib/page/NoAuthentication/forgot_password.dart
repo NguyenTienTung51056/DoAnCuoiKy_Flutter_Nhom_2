@@ -1,4 +1,4 @@
-import 'package:authentication_firebase/page/NoAuthentication/check_email.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/NoAuthentication/check_email.dart';
 import 'package:flutter/material.dart';
 
 
