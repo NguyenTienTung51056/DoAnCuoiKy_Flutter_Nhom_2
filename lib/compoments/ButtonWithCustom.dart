@@ -15,7 +15,7 @@ class ButtonWithCustome extends StatelessWidget {
           TitleWithCusTom(text:title),
           Spacer(),
           TextButton(
-              onPressed: (){},
+              onPressed: ()=>press(),
               child: Text('See more',style: TextStyle(fontSize: 15,color: Colors.green),)
           )
         ],

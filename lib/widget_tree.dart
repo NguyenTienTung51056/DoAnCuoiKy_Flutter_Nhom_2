@@ -1,5 +1,7 @@
 import 'package:authentication_firebase/auth.dart';
 import 'package:authentication_firebase/page/Authenticated/home_page.dart';
+import 'package:authentication_firebase/page/Authenticated/guides.dart';
+import 'package:authentication_firebase/page/Authenticated/tours.dart';
 import 'package:authentication_firebase/page/NoAuthentication/check_email.dart';
 import 'package:authentication_firebase/page/NoAuthentication/first_page.dart';
 import 'package:authentication_firebase/page/Authenticated/home_page2.dart';

@@ -3,8 +3,10 @@ import 'package:authentication_firebase/compoments/ButtonWithCustom.dart';
 import 'package:authentication_firebase/compoments/HeaderHome.dart';
 import 'package:authentication_firebase/compoments/ItemCard.dart';
 import 'package:authentication_firebase/compoments/homeservice.dart';
-import 'package:authentication_firebase/models/guide.dart';
-import 'package:authentication_firebase/models/tour.dart';
+import 'package:authentication_firebase/page/Authenticated/guides.dart';
+import 'package:authentication_firebase/page/Authenticated/tours.dart';
+import 'package:authentication_firebase/services/apis_service.dart';
+import 'package:authentication_firebase/utils/snackBar_helper.dart';
 import 'package:flutter/material.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,90 +15,81 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePage();
 }
 
-final guides = [
-  Guide(
-    name: "Tuan Tran",
-    address: "Danang, Vietnam",
-    image: "images/man.png",
-    star: 3
-  ),
-  Guide(
-    name: "Emmy",
-    address: "Hanoi, Vietnam",
-    image: "images/img.png",
-      star: 4
-  ),
-  Guide(
-    name: "Linh Hana",
-    address: "Danang, Vietnam",
-    image: "images/aohong.jpg",
-      star: 5
-  ),
-  Guide(
-    name: "Khai Ho",
-    address: "Ho Chi Minh, Vietnam",
-    image: "images/deokinh.jpg", star: 2
-  ),
-];
 
-
-
-
-final places = [
-  Place(
-    title: "Da Nang - Ba Na - Hoi An",
-    price: "\$400.00",
-    image: "images/img2.png",
-  ),
-  Place(
-    title: "Melbourne - Sydney",
-    price: "\$600.00",
-    image: "images/img3.png",
-  ),
-  Place(
-    title: "Hanoi - Ha Long Bay",
-    price: "\$300.00",
-    image: "images/img4.png",
-  ),
-  Place(
-    title: "Da Nang - Ba Na - Hoi An",
-    price: "\$400.00",
-    image: "images/img2.png",
-  ),
-  Place(
-    title: "Melbourne - Sydney",
-    price: "\$600.00",
-    image: "images/img3.png",
-  ),
-  Place(
-    title: "Hanoi - Ha Long Bay",
-    price: "\$300.00",
-    image: "images/img4.png",
-  ),
-];
 
 class _HomePage extends State<HomePage> {
   bool isLoading = true;
 
-  List<Guide> allGuides = guides;
-  List<Place> allPlaces = places;
-  List<Guide> _foundedUsers = [];
+  List allPlaces = [];
+  List datas = [];
+  List _foundedUsers = [];
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    fetchTodos();
+    fetchTodos2();
+  }
+// Get all item
+  Future<void> fetchTodos() async {
+    final res =await ApiService.fetchApis('guides');
+    if (res !=null) {
+      setState(() {
+        datas = res;
+        _foundedUsers = datas;
+      });
+    } else {
+      showSuccessError(context,message:"Somethings Went Wrong");
+    }
     setState(() {
-      _foundedUsers = allGuides;
+      isLoading = false;
     });
   }
 
+  // Get all item
+  Future<void> fetchTodos2() async {
+    final res =await ApiService.fetchApis('tours');
+    if (res !=null) {
+      setState(() {
+        allPlaces = res;
+      });
+    } else {
+      showSuccessError(context,message:"Somethings Went Wrong");
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  Future<void> navigateToGuidePage() async {
+    final route = MaterialPageRoute(
+      builder: (context) => Guide(context:context),
+    );
+    await Navigator.push(context, route);
+    setState(() {
+      isLoading = true;
+    });
+  }
+
+  Future<void> navigateToTourPage() async {
+    final route = MaterialPageRoute(
+      builder: (context) => Tour(context:context),
+    );
+    await Navigator.push(context, route);
+    setState(() {
+      isLoading = true;
+    });
+  }
+
+
+
   onSearch(String search) {
     setState(() {
-      _foundedUsers = allGuides
+      _foundedUsers = datas
           .where(
-              (data) => data.name.toLowerCase().contains(search.toLowerCase()))
+              (data) => data['name'].toLowerCase().contains(search.toLowerCase()))
           .toList();
-      });
+    });
   }
 
   Widget build(BuildContext context) {
@@ -105,28 +98,27 @@ class _HomePage extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            HeaderPage(size:size,onSearch:onSearch),
+            HeaderPage(size:size,onSearch:onSearch,page: 'home'),
             SizedBox(height: 30,),
-            ButtonWithCustome(title:'Top Journeys',press:(){},),
+            ButtonWithCustome(title:'Top Journeys',press:navigateToTourPage,),
             SizedBox(height: 20,),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   Container(
-                    width: size.width*3.7,
+                    width: size.width*4.8,
                     height: 280,
                     padding: EdgeInsets.symmetric(horizontal: 30),
                     child: GridView.builder(
                       itemCount: allPlaces.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: allPlaces.length, childAspectRatio: 1.3),
+                          crossAxisCount: 8, childAspectRatio: 1.3),
                      itemBuilder: (context, index) {
                        final place = allPlaces[index];
                       return HomeService(
-                        title: place.title,
-                        price: place.price,
-                        image: place.image,
+                        data: place,
+                        page: 'home',
                       );
                      },
                     )
@@ -134,7 +126,7 @@ class _HomePage extends State<HomePage> {
                 ],
               ),
             ),
-            ButtonWithCustome(title:'Best Guides',press:(){},),
+            ButtonWithCustome(title:'Best Guides',press:navigateToGuidePage,),
             SizedBox(height: 20,),
             Container(
                 width: size.width*3.7,
@@ -146,10 +138,7 @@ class _HomePage extends State<HomePage> {
                   itemBuilder: (context, index){
                     final guide = _foundedUsers[index];
                     return ItemCard(
-                      name: guide.name,
-                      image: guide.image,
-                      adress: guide.address,
-                      star: guide.star
+                     data: guide,
                     );
                   },
                 )

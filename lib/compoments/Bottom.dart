@@ -21,7 +21,7 @@ class _BottomState extends State<Bottom> {
     return Container(
       height: 70,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(80)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           color: Colors.white,
           boxShadow: [
             BoxShadow(

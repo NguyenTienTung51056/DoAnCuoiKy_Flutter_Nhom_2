@@ -1,13 +1,106 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 
-class HeaderPage extends StatelessWidget {
-  const HeaderPage({Key? key, required this.size, required this.onSearch}) : super(key: key);
 
-  final Size size;
+
+class HeaderPage extends StatelessWidget {
+  final String page;
+  final size;
   final Function(String) onSearch;
+  final context;
+  const HeaderPage({Key? key, required  this.onSearch, required  this.size, required  this.page,this.context}) : super(key: key);
+
+
+  Widget _MainInTopInHome(){
+    return Row(
+      children: [
+        Text('Explore',
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 35)),
+        Spacer(),
+        Padding(
+          padding: const EdgeInsets.only(top: 80),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Icons.location_on,
+                    color: Colors.grey,
+                  ),
+                  Text(
+                    "Da Nang",
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.cloud,
+                    color: Colors.grey,
+                    size: 35,
+                  ),
+                  Text(
+                    "26'C",
+                    style: TextStyle(
+                        color: Colors.grey, fontSize: 35),
+                  )
+                ],
+              )
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _MainInTopInGuide(){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        IconButton(
+          icon: Icon(
+            Icons.keyboard_arrow_left,
+            size: 50,
+          ),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 80, left: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Book your own private local \nGuide and explore the city",
+                    style: TextStyle(fontSize: 24, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       height: 240,
       child: Stack(children: [
         Container(
@@ -15,53 +108,9 @@ class HeaderPage extends StatelessWidget {
           height: size.height * 0.3,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/danang.jpg'),
+                  image: (page=='home'?AssetImage('assets/images/danang.jpg'):AssetImage('assets/images/backgroundTop.png')),
                   fit: BoxFit.cover)),
-          child: Row(
-            children: [
-              Text('Explore',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 35)),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(top: 80),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.location_on,
-                          color: Colors.grey,
-                        ),
-                        Text(
-                          "Da Nang",
-                          style: TextStyle(
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.cloud,
-                          color: Colors.grey,
-                          size: 35,
-                        ),
-                        Text(
-                          "26'C",
-                          style: TextStyle(
-                              color: Colors.grey, fontSize: 35),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
+          child:(page=='home' ? _MainInTopInHome(): _MainInTopInGuide())
         ),
         Positioned(
           bottom: 0,
@@ -111,4 +160,5 @@ class HeaderPage extends StatelessWidget {
     );
   }
 }
+
 

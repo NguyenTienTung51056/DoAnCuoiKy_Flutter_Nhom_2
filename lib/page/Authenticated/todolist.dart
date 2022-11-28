@@ -100,7 +100,7 @@ class _TodoListState extends State<TodoList> {
 
   // Get all item
   Future<void> fetchTodos() async {
-      final res =await TodoService.fetchTodos();
+      final res =await TodoService.fetchTodos('todos');
 
     if (res !=null) {
       setState(() {

@@ -3,12 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 
 class ItemCard extends StatelessWidget {
-    var name;
-    var adress;
-    var star;
-    var image;
-
-   ItemCard({Key?key,this.name,this.image,this.adress,this.star}) : super(key: key);
+  final Map data;
+  const ItemCard({Key?key, required this.data}) : super(key: key);
 
   
   @override
@@ -23,7 +19,7 @@ class ItemCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
-              image: AssetImage(image),fit: BoxFit.cover
+              image: NetworkImage('${data['avatar']}'),fit: BoxFit.cover
           ),),
           child: Stack(
             children: [
@@ -36,11 +32,11 @@ class ItemCard extends StatelessWidget {
                   child: Column(
                     children: [
                       Expanded(
-                        child: star > 0
+                        child: data['star']> 0
                             ? GridView.builder(
-                          itemCount: star,
+                          itemCount: data['star'],
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount:  star, childAspectRatio: 1),
+                              crossAxisCount:  data['star'], childAspectRatio: 1),
                           itemBuilder: (context, index) =>
                                    SvgPicture.asset("assets/icons/star.svg"),
                         )
@@ -54,7 +50,7 @@ class ItemCard extends StatelessWidget {
                   top: 170,
                   left: 10,
                   child: Text(
-                    "127 Reviews",
+                    "${data['Review']} Reviews",
                     style: TextStyle(color: Colors.white, fontSize: 12),
                   ))
             ],
@@ -66,7 +62,7 @@ class ItemCard extends StatelessWidget {
             children: [
               Container(
                 child: Text(
-                  "${name}",
+                  "${data['name']}",
                   style: TextStyle(fontSize: 10),
                 ),
               ),
@@ -87,7 +83,7 @@ class ItemCard extends StatelessWidget {
                 ),
                 Container(
                   child: Text(
-                    "${adress}",
+                    "${data['address']}",
                     style: TextStyle(fontSize: 17, color: Colors.green),
                   ),
                 ),
