@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "722151336898",
+    "project_id": "vibrant-vector-349116",
+    "storage_bucket": "vibrant-vector-349116.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722151336898:android:9ce6651005c0041f25c45b",
+        "android_client_info": {
+          "package_name": "com.example.authentication_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722151336898-gfupqv4i0md88sdb0dmkks3fqah7foi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYXQq550ViXXEcCSZQXWd_9mdHFSTmv68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722151336898-5mfhcgtim6t47j1lt5armkolom6277bs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
