@@ -12,8 +12,6 @@ class CheckEmail extends StatefulWidget {
 class CheckEmailState extends State<CheckEmail> {
   bool isLogin = true;
 
-  final TextEditingController _controllerEmail = TextEditingController();
-
 
 
   void _startNavigate() {

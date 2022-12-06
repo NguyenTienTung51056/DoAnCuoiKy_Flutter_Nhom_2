@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:DoAnCuoiKy_Flutter_Nhom_2/compoments/Input_Field.dart';
-import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/Authenticated/home_page2.dart';
+import 'package:DoAnCuoiKy_Flutter_Nhom_2/page/Authenticated/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../auth.dart';
@@ -28,7 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
       );
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => HomePage2()),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     } on FirebaseAuthException catch (e) {
       setState(() {
