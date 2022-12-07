@@ -46,6 +46,13 @@ class _CreateTripState extends State<CreateTrip> {
   late String date;
   late String time;
   late String image;
+  bool img1 = false;
+  bool img2 = false;
+  bool img3 = false;
+  bool img4 = false;
+
+  static const IconData check = IconData(0xe156, fontFamily: 'MaterialIcons');
+
   var number = 1;
   void onChangeCity(String temp) {
     setState(() {
@@ -321,9 +328,13 @@ class _CreateTripState extends State<CreateTrip> {
                             Row(
                               children: [
                                 InkWell(
-                                  onTap: () {
+                                  onTap: (){
                                     setState(() {
                                       image = "images/img3.png";
+                                      img1 = !img1;
+                                      img2 = false;
+                                      img3 = false;
+                                      img4 = false;
                                     });
                                   },
                                   child: Container(
@@ -331,18 +342,56 @@ class _CreateTripState extends State<CreateTrip> {
                                     height: 100,
                                     decoration: const BoxDecoration(
                                         image: DecorationImage(
-                                            image:
-                                                AssetImage("images/img3.png"),
-                                            fit: BoxFit.cover)),
+                                            image: AssetImage("images/img3.png"),
+                                            fit: BoxFit.cover)
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            height: 30,
+                                            width: 30,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(50),
+                                              color: (() {
+                                                if (img1) {
+                                                  return Colors.white;
+                                                } else {
+                                                  return Colors.white.withOpacity(0.3);
+                                                }
+                                              }()),
+                                            ),
+                                            child: Icon(
+                                              check,
+                                              size: 20,
+                                              color: (() {
+                                                if (img1) {
+                                                  return Colors.black;
+                                                } else {
+                                                  return Colors.black.withOpacity(0.3);
+                                                }
+                                              }()),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(
                                   width: 20,
                                 ),
                                 InkWell(
-                                  onTap: () {
+                                  onTap: (){
                                     setState(() {
                                       image = "images/img4.png";
+                                      img2 = !img2;
+                                      img1 = false;
+                                      img3 = false;
+                                      img4 = false;
                                     });
                                   },
                                   child: Container(
@@ -350,9 +399,43 @@ class _CreateTripState extends State<CreateTrip> {
                                     height: 100,
                                     decoration: const BoxDecoration(
                                         image: DecorationImage(
-                                            image:
-                                                AssetImage("images/img4.png"),
-                                            fit: BoxFit.cover)),
+                                            image: AssetImage("images/img4.png"),
+                                            fit: BoxFit.cover)
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            height: 30,
+                                            width: 30,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(50),
+                                              color: (() {
+                                                if (img2) {
+                                                  return Colors.white;
+                                                } else {
+                                                  return Colors.white.withOpacity(0.3);
+                                                }
+                                              }()),
+                                            ),
+                                            child: Icon(
+                                              check,
+                                              size: 20,
+                                              color: (() {
+                                                if (img2) {
+                                                  return Colors.black;
+                                                } else {
+                                                  return Colors.black.withOpacity(0.3);
+                                                }
+                                              }()),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -363,9 +446,13 @@ class _CreateTripState extends State<CreateTrip> {
                             Row(
                               children: [
                                 InkWell(
-                                  onTap: () {
+                                  onTap: (){
                                     setState(() {
                                       image = "images/myTrip/img5.png";
+                                      img3= !img3;
+                                      img2 = false;
+                                      img1 = false;
+                                      img4 = false;
                                     });
                                   },
                                   child: Container(
@@ -373,18 +460,56 @@ class _CreateTripState extends State<CreateTrip> {
                                     height: 100,
                                     decoration: const BoxDecoration(
                                         image: DecorationImage(
-                                            image: AssetImage(
-                                                "images/myTrip/img5.png"),
-                                            fit: BoxFit.cover)),
+                                            image: AssetImage("images/myTrip/img5.png"),
+                                            fit: BoxFit.cover)
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            height: 30,
+                                            width: 30,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(50),
+                                              color: (() {
+                                                if (img3) {
+                                                  return Colors.white;
+                                                } else {
+                                                  return Colors.white.withOpacity(0.3);
+                                                }
+                                              }()),
+                                            ),
+                                            child: Icon(
+                                              check,
+                                              size: 20,
+                                              color: (() {
+                                                if (img3) {
+                                                  return Colors.black;
+                                                } else {
+                                                  return Colors.black.withOpacity(0.3);
+                                                }
+                                              }()),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(
                                   width: 20,
                                 ),
                                 InkWell(
-                                  onTap: () {
+                                  onTap: (){
                                     setState(() {
                                       image = "images/myTrip/img6.png";
+                                      img4 = !img4;
+                                      img2 = false;
+                                      img3 = false;
+                                      img1 = false;
                                     });
                                   },
                                   child: Container(
@@ -392,9 +517,43 @@ class _CreateTripState extends State<CreateTrip> {
                                     height: 100,
                                     decoration: const BoxDecoration(
                                         image: DecorationImage(
-                                            image: AssetImage(
-                                                "images/myTrip/img6.png"),
-                                            fit: BoxFit.cover)),
+                                            image: AssetImage("images/myTrip/img6.png"),
+                                            fit: BoxFit.cover)
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            height: 30,
+                                            width: 30,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(50),
+                                              color: (() {
+                                                if (img4) {
+                                                  return Colors.white;
+                                                } else {
+                                                  return Colors.white.withOpacity(0.3);
+                                                }
+                                              }()),
+                                            ),
+                                            child: Icon(
+                                              check,
+                                              size: 20,
+                                              color: (() {
+                                                if (img4) {
+                                                  return Colors.black;
+                                                } else {
+                                                  return Colors.black.withOpacity(0.3);
+                                                }
+                                              }()),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],
